@@ -3,8 +3,22 @@
     padding-bottom: 90px;
 }
 
+.sk-testimonial-carousel .swiper-wrapper {
+    align-items: stretch;
+}
+
+.sk-testimonial-carousel .swiper-slide {
+    height: auto;
+    display: flex;
+}
+
 .sk-testimonial-item {
     background: transparent;
+    display:flex;
+    width: 100%;
+    height:100%;
+    flex:1;
+    flex-direction: column;
 }
 
 .sk-stars {
@@ -15,9 +29,12 @@
 }
 
 .sk-review {
+
     font-size: 16px;
     line-height: 1.7;
     color: #1f2937;
+    flex:1;
+    min-height: calc(1em * 1.7 * 4);
     margin-bottom: 35px;
 }
 
@@ -69,7 +86,7 @@
 .sk-pagination-numbers .swiper-pagination {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
 }
 
 .sk-pagination-number {
@@ -89,8 +106,8 @@
 }
 
 .sk-pagination-number.swiper-pagination-bullet-active {
-    color: #000;
-    background: transparent;
+    color: #fff !important;
+    border-color: transparent;
 }
 
 .sk-pagination-fraction .swiper-pagination {

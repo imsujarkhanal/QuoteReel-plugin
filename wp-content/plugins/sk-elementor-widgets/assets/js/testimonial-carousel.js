@@ -9,6 +9,10 @@
             return;
         }
 
+        if (carousel.data('sk-swiper-initialized')) {
+            return;
+        }
+
         var slidesPerView = parseInt(wrapper.data('slides'), 10) || 2;
         var slidesPerScroll = parseInt(wrapper.data('scroll'), 10) || 1;
         var spaceBetween = parseInt(wrapper.data('space'), 10) || 40;
@@ -68,7 +72,12 @@
             };
         }
 
+        if (typeof Swiper === 'undefined') {
+            return;
+        }
+
         new Swiper(carousel[0], swiperOptions);
+        carousel.data('sk-swiper-initialized', true);
     };
 
     $(window).on('elementor/frontend/init', function () {
@@ -76,6 +85,12 @@
             'frontend/element_ready/sk-testimonial-carousel.default',
             initTestimonialCarousel
         );
+    });
+
+    $(function () {
+        $('.sk-testimonial-carousel-wrapper').each(function () {
+            initTestimonialCarousel($(this));
+        });
     });
 
 })(jQuery);

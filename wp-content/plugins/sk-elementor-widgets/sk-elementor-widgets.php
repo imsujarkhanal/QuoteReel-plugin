@@ -2,7 +2,7 @@
 /**
  * Plugin Name: SK Elementor Widgets
  * Description: Custom Elementor widgets for the website.
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: Sujar Khanal
  */
 
@@ -18,18 +18,27 @@ function sk_register_elementor_widgets( $widgets_manager ) {
 add_action( 'elementor/widgets/register', 'sk_register_elementor_widgets' );
 
 function sk_register_widget_assets() {
+    if ( defined( 'ELEMENTOR_ASSETS_URL' ) ) {
+        wp_register_style(
+            'sk-swiper-css',
+            ELEMENTOR_ASSETS_URL . 'lib/swiper/v8/css/swiper.min.css',
+            [],
+            '8.4.5'
+        );
+    }
+
     wp_register_style(
         'sk-testimonial-carousel-css',
         plugin_dir_url( __FILE__ ) . 'assets/css/testimonial-carousel.css',
-        [],
-        '1.0.1'
+        defined( 'ELEMENTOR_ASSETS_URL' ) ? [ 'sk-swiper-css' ] : [],
+        '1.0.2'
     );
 
     wp_register_script(
         'sk-testimonial-carousel-js',
         plugin_dir_url( __FILE__ ) . 'assets/js/testimonial-carousel.js',
         [ 'jquery', 'swiper' ],
-        '1.0.1',
+        '1.0.2',
         true
     );
 }
