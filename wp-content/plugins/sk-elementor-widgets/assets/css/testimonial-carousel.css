@@ -176,6 +176,8 @@
     padding: 10px 16px;
 }
 
+
+/* //responsive */
 @media (max-width: 767px) {
     .sk-testimonial-carousel {
         padding-bottom: 120px;
@@ -225,6 +227,11 @@
         max-width: calc(100% - 36px);
     }
 }
+
+
+
+/* the navigation button is not shown in the site */
+
 
 @media (max-width: 767px) {
     .sk-testimonial-carousel {
